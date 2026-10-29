@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello, World!</title>
+<meta name="description" content="Простая страница Hello, World!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+<style>
+  :root {
+    --bg1: #0b1026;
+    --bg2: #241a4d;
+    --accent: #7c5cff;
+    --accent2: #22d3ee;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+      radial-gradient(1200px 600px at 15% 10%, rgba(124, 92, 255, .35), transparent 60%),
+      radial-gradient(900px 500px at 85% 90%, rgba(34, 211, 238, .25), transparent 60%),
+      linear-gradient(160deg, var(--bg1), var(--bg2));
+    color: #eef0ff;
+    font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+  .card {
+    position: relative;
+    width: min(680px, 100%);
+    padding: 48px 40px;
+    border-radius: 28px;
+    text-align: center;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+    backdrop-filter: blur(14px);
+    animation: rise .8s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(26px) scale(.97); }
+    to   { opacity: 1; transform: none; }
+  }
+  .wave {
+    font-size: 64px;
+    line-height: 1;
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: wave 2.2s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(16deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(16deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(12deg); }
+  }
+  h1 {
+    margin: 18px 0 10px;
+    font-size: clamp(38px, 9vw, 76px);
+    letter-spacing: -.03em;
+    background: linear-gradient(100deg, #fff 10%, var(--accent2) 55%, var(--accent) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  p.sub {
+    margin: 0 auto;
+    max-width: 46ch;
+    font-size: clamp(15px, 2.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(238, 240, 255, .72);
+  }
+  .meta {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .pill {
+    padding: 8px 15px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: .02em;
+    color: rgba(238, 240, 255, .85);
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .12);
+  }
+  #clock { font-variant-numeric: tabular-nums; }
+  footer {
+    position: fixed;
+    bottom: 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(238, 240, 255, .35);
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="wave" aria-hidden="true">👋</div>
+    <h1>Hello, World!</h1>
+    <p class="sub">Этот сайт собран и опубликован автоматически. Одна страница, ни одного фреймворка — и он уже в интернете.</p>
+    <div class="meta">
+      <span class="pill">⚡ Статика</span>
+      <span class="pill">🌍 GitHub Pages</span>
+      <span class="pill">🕒 <span id="clock">--:--:--</span></span>
+    </div>
+  </main>
+  <footer>Сделано с ❤️ и небольшим количеством HTML</footer>
+<script>
+  (function tick() {
+    var d = new Date();
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    document.getElementById('clock').textContent =
+      p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+    setTimeout(tick, 1000);
+  })();
+</script>
+</body>
+</html>
